@@ -204,7 +204,8 @@ namespace Lab0.Controllers
         // GET: ClientController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var ViewClient = Singleton.Instance.ClientList.Find(x => x.id == id);
+            return View(ViewClient);
         }
 
         // POST: ClientController/Delete/5
@@ -214,6 +215,8 @@ namespace Lab0.Controllers
         {
             try
             {
+                var ViewClient = Singleton.Instance.ClientList.Find(x => x.id == id);
+                Singleton.Instance.ClientList.Remove(ViewClient);
                 return RedirectToAction(nameof(Index));
             }
             catch
