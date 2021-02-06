@@ -129,17 +129,15 @@ namespace Lab0.Controllers
             int length = 0;
             if (Name.Length > Nam.Length)
             {
-                length = Name.Length;
-            }
-            else if (Nam.Length > Name.Length)
-            {
                 length = Nam.Length;
+            }
+            else 
+            {
+                length = Name.Length;
             }
 
             for (int i = 0; i < length; i++)
             {
-                if (i < Name.Length && i < Nam.Length)
-                {
                     if (Name[i].CompareTo(Nam[i]) < 0)
                     {
                         return false;
@@ -152,15 +150,6 @@ namespace Lab0.Controllers
                     {
                         return true;
                     }
-                }
-                else if (i >= Name.Length)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
             }
             return true;
         }
